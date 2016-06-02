@@ -1,7 +1,6 @@
 # Jelastic SmartFoxServer 2X Installation Package 
 
 This repository provides [SmartFoxServer 2X](http://smartfoxserver.com/) JPS-based installation package for Jelastic Platform.
-[![GET IT HOSTED](https://raw.githubusercontent.com/JelasticJPS/SmartFoxServer-2X/master/images/getithosted.png)](http://go.jelastic.com/test?hoster-select=1&theme=modern&app=https://raw.githubusercontent.com/JelasticJPS/SmartFoxServer-2X/master/smartfoxserver2x-2.9.0.json)
 
 **SmartFoxServer 2X** is a comprehensive SDK for rapidly developing realtime and turn-based multiplayer games, virtual worlds, MMOGs, communities and much more.
 
