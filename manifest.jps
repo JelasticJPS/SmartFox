@@ -1,0 +1,63 @@
+{
+	"jpsVersion": "0.1",
+	"jpsType": "install",
+	"application": {
+		"id": "smartfoxserver2x",
+		"name": "SmartFoxServer 2X",
+		"version": "2.9.0",
+		"logo": "https://raw.githubusercontent.com/jelastic-jps/smartfoxserver-2x/master/images/sfs2x_logo.png",
+		"homepage": "http://smartfoxserver.com/",
+		"description": "SmartFoxServer is a comprehensive SDK for rapidly developing realtime and turn-based multiplayer games, virtual worlds, MMOGs, communities and much more.<br>SmartFoxServer supports all main platforms and programming languages, like Unity, HTML5, Adobe Flash/Flex/Air, iOS and tvOS, Android, Windows Universal, Java, C++ and more.",
+		"env": {
+			"topology": {
+				"engine": "java7",
+				"nodes": [{
+						"cloudlets": 16,
+						"nodeType": "smartfox-server"
+					}
+				]
+			}
+		},
+		"onInstall": [{
+				"executeScript": {
+					"type": "js",
+					"script": "https://raw.githubusercontent.com/jelastic-jps/smartfoxserver-2x/master/scripts/addEndpoint.js",
+					"params": {
+						"nodeGroup": "cp",
+						"name": "SmartFoxServer",
+						"port": 9933
+					}
+				}
+			}
+		],
+		"addons": [{
+				"id": "sendEmail",
+				"success": {
+					"email": "${settings.publicPort}"
+				}
+			}
+		],
+		"procedures": [{
+				"id": "sendEmail",
+				"onCall": [{
+						"executeScript": {
+							"type": "js",
+							"script": "return REPLACEMENTS"
+						}
+					}, {
+						"installAddon": {
+							"id": "sendEmail",
+							"settings": {
+								"publicPort": "${this.publicPort}"
+							}
+						}
+					}
+				]
+			}
+		],
+		"success": {
+			"text": "Below you will find the link to the SmartFoxServer 2X Administration Tool. Enter the access credentials below to connect. Adobe Flash plugin is required.</br></br> <table style='font-size:13px; border: none;'><tr><td>Admin Tool URL:</td><td style='padding-left: 10px;'><a href='${env.protocol}://${env.domain}/admin/' target='_blank'>${env.protocol}://${env.domain}/admin/</a></td></tr><tr><td>Host:</td><td style='padding-left: 10px;'>${env.domain}</td></tr><tr><td>Port:</td><td  id='smartfox-endpoints' style='padding-left: 10px'></td></tr><tr><td>Username:</td><td  style='padding-left: 10px'>sfsadmin</td></tr><tr><td>Password:</td><td  style='padding-left: 10px'>sfsadmin</td></tr></table> <img src=\"https://raw.githubusercontent.com/jelastic-jps/smartfoxserver-2x/master/images/000000-0.png\" onload=\"!function(){var e,t=JProjectManager.GetActiveProject().GetAppByAppid('${env.appid}'),f=t.GetNodesByGroup('cp'),o=(t.GetDomain(),JProjectManager.GetActiveProject().GetAppByAppid('${env.appid}').GetComputeNodes().length),p='';!function a(){var t=Ext.get('smartfox-endpoints');if(t)for(e=0;o>e;e+=1)f[e].endpoints.forEach(function(e){p=e.publicPort});else a.defer(100);t.update(p)}()}();\"/>",
+			"email": false
+		}
+	}
+}
