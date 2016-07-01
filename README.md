@@ -1,4 +1,4 @@
-[![SmartFoxServer 2X](../images/sfs2x_logo.png)](../smartfoxserver-2x)
+[![SmartFoxServer 2X](images/sfs2x_logo.png)](../../../smartfoxserver-2x)
 ##  SmartFoxServer 2X
 
 The JPS package deploys SmartFoxServer 2X that initially contains 1 SmartFox application server and 1 database container. 
