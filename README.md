@@ -9,7 +9,7 @@ SmartFoxServer supports all main platforms and programming languages, like Unity
 
 ### Environment Topology
 
-![SmartFoxServer 2X Topology](https://docs.google.com/drawings/d/1J4mMPvsW0yRzWkFjNfG46nPl5iCEf0MKqbOPXJUXA2k/pub?w=281&h=119)
+![smartfoxserver-2x-environment-topology](images/smartfoxserver-2x-environment-topology.png)
 
 ### Specifics
 
